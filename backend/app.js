@@ -6,7 +6,7 @@ const getDB = require('./db')
 const app = express()
 const port = process.env.PORT * 1 || 4000
 
-app.use(cors())
+app.use(cors({ origin: '*' }))
 app.use(bodyParser.json())
 
 app.post('/', async (req, res) => {

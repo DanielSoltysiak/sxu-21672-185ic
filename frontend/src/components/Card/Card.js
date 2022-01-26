@@ -5,7 +5,7 @@ import StarIcon from '../starIcon';
 
 function Card({ pokemon, isFavourite, setFavourites }) {
     const addFav = async (pokemon) => {
-        const res = await fetch(process.env.REACT_APP_ENDPOINT, {
+        const res = await fetch(window._env_.REACT_APP_ENDPOINT, {
             method: isFavourite?'DELETE':'POST',  
             headers: {
                 'Content-type': 'application/json'

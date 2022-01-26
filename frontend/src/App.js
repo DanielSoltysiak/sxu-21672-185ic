@@ -19,15 +19,14 @@ function App() {
       setPrevUrl(response.previous);
       await loadPokemon(response.results);
       setLoading(false);
-      const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/?userID=${localStorage.getItem("userID") || ''}`, {
+      const res = await fetch(`${window._env_.REACT_APP_ENDPOINT}/?userID=${localStorage.getItem("userID") || ''}`, {
         method: 'GET',  
         headers: {
             'Content-type': 'application/json'
         },
       })
-      const data = await res.json()
+     const data = await res.json()
       setFavourites(data.favourites)
-      console.log({data})
       localStorage.setItem("userID", data._id)
   
     }

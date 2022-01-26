@@ -1,0 +1,1 @@
+MONGO_URL=mongodb://my-database-mongodb.labproj20.svc.cluster.local:27017/users
