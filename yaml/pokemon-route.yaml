@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app: pokemon-frontend-svc
+    service: productpage
+  name: pokemon
+spec:
+  host: ""
+  port:
+    targetPort: http
+  to:
+    kind: ""
+    name: pokemon-frontend-svc
+    weight: null
+status:

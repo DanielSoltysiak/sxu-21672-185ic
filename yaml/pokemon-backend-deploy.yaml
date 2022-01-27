@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: pokemon-backend-deploy
+  name: pokemon-backend-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pokemon-backend-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: pokemon-backend-deploy
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/labproj20/backend
+        name: backend
+        ports:
+        - containerPort: 4001
+        resources: {}
+        envFrom:
+        - configMapRef:
+            name: pokemon-cmap
+        - secretRef:
+            name: pokemon-secret
+status: {}

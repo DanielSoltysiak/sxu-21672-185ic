@@ -1,0 +1,28 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: pokemon-backend-deploy
+  name: pokemon-backend-route
+  namespace: labproj20
+  resourceVersion: "80776124"
+  uid: e2370604-b08f-470a-80de-d400f7f55f60
+spec:
+  host: pokemon-backend-deploy-labproj20.apps.ocp.lab.cloudpak.site
+  port:
+    targetPort: 4001
+  to:
+    kind: Service
+    name: pokemon-backend-svc
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+  - conditions:
+    - lastTransitionTime: "2022-01-26T19:13:55Z"
+      status: "True"
+      type: Admitted
+    host: pokemon-backend-deploy-labproj20.apps.ocp.lab.cloudpak.site
+    routerCanonicalHostname: router-default.apps.ocp.lab.cloudpak.site
+    routerName: default
+    wildcardPolicy: None

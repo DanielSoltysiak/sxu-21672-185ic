@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: pokemon-frontend-deploy
+  name: pokemon-frontend-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pokemon-frontend-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: pokemon-frontend-deploy
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/labproj20/frontend
+        name: pokemon-frontend-deploy
+        ports:
+        - containerPort: 80
+        resources: {}
+        envFrom:
+        - configMapRef:
+            name: pokemon-cmap
+status: {}
